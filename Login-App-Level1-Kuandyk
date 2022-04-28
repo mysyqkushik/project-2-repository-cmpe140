@@ -27,10 +27,10 @@ int sign_In(char user[30], char pass[30]) {
             printf("\nDo you want to play again? Y or N: \n");
 
             scanf(" %c", &answer);
-            printf("\nCongratulations, you are not gay!\n");
+            printf("\nGood bye!\n");
 
         }
-        printf("GoodBye!");
+        printf("Congratulations, you are not gay!");
         return 0;
     }
     else {
