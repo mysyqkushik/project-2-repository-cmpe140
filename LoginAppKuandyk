@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <cstdlib>
+#include <stdlib.h>
+
+int sign_In(char user[30], char pass[30]) {
+    FILE* p;
+    char user2[30], pass2[30];     //Set the maximum length of username and password
+
+    p = fopen("users.txt", "r");     //Open the data file
+
+
+    fscanf(p, "%s  %s", user2, pass2);    //Get the data from database
+
+    if ((strcmp(user, user2) == 0) && (strcmp(pass, pass2) == 0)) {      //Converting char values to string values
+        printf("\nUser and password correct!!!");
+        printf("\nPlease, answer to the question below: \n");
+        char answer;
+        printf("\nAre you gay? Enter Y or N: \n");
+        scanf(" %c", &answer);
+        printf("\nThe answer is %c\n", answer);
+        while (answer == 'Y') {   //Creating a loop, so user can change the vote
+
+            printf("Yaaaaaaaasssss");
+
+            printf("\nDo you want to play again? Y or N: \n");
+
+            scanf(" %c", &answer);
+            printf("\nCongratulations, you are not gay!\n");
+
+        }
+        printf("GoodBye!");
+        return 0;
+    }
+    else {
+        printf("\nUser or password incorrect!\n");
+        printf("\nGoodbye, try again :)\n\n");
+    }
+    printf("\n\n");
+
+    fclose(p);    //Closing the users.txt file
+    return 0; 
+}
+
+int main() {
+    char user[30], pass[30];
+
+    printf("\nUser:");      //Asking user to input the username
+    scanf("%s", user);      //Reading entered data
+    printf("\nPassword:");  //Asking user to input the password
+    scanf("%s", pass);      //Reading entered data
+
+    sign_In(user, pass);
+    
+}
